@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING, Any
 
 from .experiments import catalog, get_experiment
 
-__version__ = "0.1.0a1"
+__version__ = "0.1.0a2"
 __all__ = ["Engine", "catalog", "get_experiment", "__version__"]
 
 if TYPE_CHECKING:

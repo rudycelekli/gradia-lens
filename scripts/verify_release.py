@@ -17,7 +17,7 @@ from email.parser import BytesParser
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.1.0a1"
+VERSION = "0.1.0a2"
 PROJECT = "gradia-lens"
 
 
@@ -56,7 +56,7 @@ def source_allowed(path: PurePosixPath) -> bool:
         return path.name in {"PKG-INFO", "SOURCES.txt", "dependency_links.txt", "entry_points.txt", "requires.txt", "top_level.txt"}
     if str(path) == "docs/assets/computation.jpg":
         return True
-    if str(path) == "examples/records/positive-tone.json":
+    if str(path) in {"examples/records/positive-tone.json", "examples/records/positive-tone-campaign.json"}:
         return True
     if len(path.parts) == 3 and path.parts[:2] == ("docs", "adr") and path.suffix == ".md":
         return True
@@ -141,7 +141,12 @@ def verify(dist: Path, package: Path) -> dict:
                 stream = archive.extractfile(member)
                 if stream is None or stream.read() != canonical.read_bytes():
                     raise ValueError(f"Source distribution differs from canonical file: {relative}")
-        required = {"pyproject.toml", "README.md", "LICENSE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "CHANGELOG.md", "docs/RESEARCH.md"}
+        required = {
+            "pyproject.toml", "README.md", "LICENSE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "CHANGELOG.md",
+            "docs/RESEARCH.md", "docs/RESEARCH_PLAN.md", "docs/PAPER_TRACK.md", "docs/assets/computation.jpg",
+            "docs/adr/0001-portable-intervention-research.md", "docs/adr/0002-recorded-rubric-tradeoffs.md",
+            "examples/records/positive-tone.json", "examples/records/positive-tone-campaign.json",
+        }
         required.update(f"src/gradia_lens/{name}" for name in expected_modules)
         if not required.issubset(source_files):
             raise ValueError(f"Missing portable release files: {sorted(required - set(source_files))}")
