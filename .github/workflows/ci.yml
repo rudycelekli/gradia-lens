@@ -1,0 +1,28 @@
+name: Portable research package
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  portable:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.9', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install '.[dev]' 'setuptools==80.10.2'
+      - run: python -m pytest -q
+      - run: python -m build --no-isolation --outdir dist
+      - run: python scripts/verify_release.py --dist dist
+# Real checkpoint qualification is recorded separately. This workflow does not
+# upload a registry package or imply every model/device has been tested.

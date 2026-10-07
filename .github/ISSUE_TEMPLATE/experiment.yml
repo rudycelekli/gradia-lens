@@ -1,0 +1,17 @@
+name: Reproducible experiment
+description: Report an intervention, unexpected side effect or reproducibility issue.
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Bounded reproduction
+      description: Package version, model revision, runtime and minimal command. Use synthetic or redacted prompts.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and measured behavior
+      description: Describe the effect, side effects and restoration outcome. Do not upload private receipts or model caches.
+    validations:
+      required: true

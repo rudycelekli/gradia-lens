@@ -1,0 +1,7 @@
+include README.md LICENSE NOTICE CONTRIBUTING.md CHANGELOG.md SECURITY.md
+recursive-include docs *.md
+recursive-include examples *.py *.json
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include src/gradia_lens *.py py.typed
+include docs/assets/computation.jpg
