@@ -13,15 +13,15 @@ not grant a license to the surrounding Gradia application or model weights.
 
 This is Gradia's open-source **Intervention Atlas** research project, published
 as **Gradia Lens**. Source, issues and contributions live in
-[gradia-lens](https://github.com/rudycelekli/gradia-lens). The first qualified
-alpha is `0.1.0a1`. PyPI publication is pending. The
+[gradia-lens](https://github.com/rudycelekli/gradia-lens). The published initial alpha is `0.1.0a1`; this development edition is
+`0.1.0a2`. PyPI publication is pending. The
 [Gradia product page](https://www.gradiahq.com/lens) is the intended website
 entry point; the public source repository is available independently.
 
 ## Explore a real recorded experiment
 
 ```bash
-git clone https://github.com/rudycelekli/gradia-lens.git
+git clone --branch research/intervention-tradeoffs https://github.com/rudycelekli/gradia-lens.git
 cd gradia-lens
 python -m pip install .
 gradia-lens view examples/records/positive-tone.json --output /tmp/gradia-lens.html
@@ -108,6 +108,58 @@ the single selected setting on confirmation data. A user choosing another
 setting after reading confirmation has converted that set into exploratory
 data and should collect fresh confirmation examples.
 
+## Explore captured tradeoffs offline
+
+The commands in this section require this `0.1.0a2` development branch, installed
+from source. The frozen `0.1.0a1` release has the original computation viewer.
+
+Explore six real measured settings without downloading a model:
+
+```bash
+gradia-lens view examples/records/positive-tone-campaign.json --output /tmp/gradia-tradeoffs.html
+```
+
+With model dependencies installed, capture a new campaign:
+
+```bash
+gradia-lens search --experiment positive-tone --layers 8 10 \
+  --strengths 0 0.15 0.35 --budget 6 --output receipts/search.json
+gradia-lens view receipts/search.json --output receipts/tradeoffs.html
+```
+
+Open the HTML file locally. The same viewer accepts evaluation receipts and
+campaign objects containing `searches`, `experiments`, or nested `campaigns`.
+It has no model dependencies, network calls, or inference. Sliders rerank the
+captured discovery evidence using an explicit utility:
+
+`target_weight × target_margin_gain − damage_weight × regression_damage − time_weight × evaluation_seconds`
+
+Only settings with matching model, checkpoint, dtype, dataset, engine, and
+captured discovery-case definitions share a frontier. Missing fingerprints
+restrict comparisons to the original supplied record. Click a measured point
+to inspect its setting and individual discovery probes; pin a reference to
+compare matching probe outcomes. Zoom and pan change only the chart view.
+The candidate panel is separate from an attached computation trace: it never
+borrows residuals, generated text, or a confirmation audit from another setting.
+
+Confirmation outcomes do not affect the ranking or frontier. A frozen audit
+is displayed only at its original, exactly matching setting. If a new rubric
+selects another setting, collect fresh confirmation examples before accepting
+it. The candidate-string scores are manually specified research proxies.
+
+New searches record each whole discovery evaluation batch duration. Historical
+points without duration remain unmeasured. Time axes and time penalties are
+disabled unless every compatible candidate was timed. A full evaluation's
+confirmation-inclusive duration is not substituted for discovery batch time.
+Recorded times include real cache and direction-fitting conditions; they are
+not a controlled speed benchmark. Receipt timings distinguish model loading
+from the serialized operation and its parameter hashing. Timings are bound by
+the receipt SHA-256 but excluded from exact numerical measurement replay.
+
+The Python helpers `gradia_lens.rubric.analyze_candidates`, `rank_candidates`,
+and `pareto_ids` use only the standard library. See the
+[decision record](docs/adr/0002-recorded-rubric-tradeoffs.md) for scope and tests.
+
 ## Python API
 
 ```python
@@ -185,3 +237,11 @@ intervention discovery and visual investigation studies. These are study plans,
 not completed benchmark claims. Locally usable inspection, interventions and
 export remain open source; future paid Gradia services may provide hosted
 compute, larger campaigns and private team collaboration.
+
+## Frontier research track
+
+The proposed contribution is joint acquisition of internal interventions and revealing
+counterexamples under measured compute budgets. [PAPER_TRACK.md](docs/PAPER_TRACK.md)
+specifies the prospective algorithm, competing methods, causal controls, fresh
+confirmation, and falsification criteria. The joint algorithm and cost ledger are
+not implemented by the current viewer; no superiority or venue acceptance is claimed.

@@ -146,14 +146,33 @@ class BoundarySearch:
     def observe(self, candidate: Candidate, evaluation: dict[str, Any], reason: str) -> dict[str, Any]:
         if candidate not in self.remaining:
             raise ValueError("Candidate already evaluated or not in grid")
+        rows = evaluation.get("rows", evaluation.get("cases", []))
+        if evaluation.get("confirmation_included") is True or any(
+            isinstance(row, dict) and row.get("partition") == "confirmation" for row in rows
+        ):
+            raise ValueError("Discovery search cannot consume confirmation observations")
+        duration = evaluation.get("elapsed_seconds")
+        if duration is not None:
+            if isinstance(duration, bool) or not isinstance(duration, (int, float)):
+                raise ValueError("Measured evaluation duration must be a finite number")
+            try:
+                duration = _number(duration)
+            except OverflowError as exc:
+                raise ValueError("Measured evaluation duration must be finite") from exc
+            if duration < 0:
+                raise ValueError("Measured evaluation duration must be nonnegative")
         point = {
             "layer": candidate.layer,
             "strength": candidate.strength,
             **metrics(evaluation),
             "reason": reason,
             "summary": evaluation.get("summary", {}),
-            "rows": evaluation.get("rows", evaluation.get("cases", [])),
+            "rows": rows,
             "provenance": evaluation.get("provenance", {}),
+            # Whole evaluation batch time, including its actual cache/fitting
+            # state. Historical observations without timing remain unrecorded.
+            "evaluation_elapsed_seconds": duration,
+            "evaluation_timing_scope": "discovery_evaluation_batch",
         }
         self.remaining.remove(candidate)
         self.observed.append(point)

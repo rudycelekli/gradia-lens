@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.verify_release import verify
+from scripts.verify_release import VERSION, verify
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT
@@ -99,7 +99,7 @@ def test_duplicate_members_cannot_hide_an_alternate_engine(release, tmp_path):
 
 def test_private_local_receipts_are_refused_in_source_distribution(release, tmp_path):
     directory = copy_release(release, tmp_path)
-    item = tarfile.TarInfo("gradia_lens-0.1.0a1/output/model-research/tenant/private.json")
+    item = tarfile.TarInfo(f"gradia_lens-{VERSION}/output/model-research/tenant/private.json")
     contents = b'{"private":true}'
     item.size = len(contents)
     rewrite_source(directory, lambda files: [*files, (item, contents)])
@@ -109,7 +109,7 @@ def test_private_local_receipts_are_refused_in_source_distribution(release, tmp_
 
 def test_an_allowlisted_module_still_needs_reviewed_canonical_source(release, tmp_path):
     directory = copy_release(release, tmp_path)
-    item = tarfile.TarInfo("gradia_lens-0.1.0a1/src/gradia_lens/unreviewed.py")
+    item = tarfile.TarInfo(f"gradia_lens-{VERSION}/src/gradia_lens/unreviewed.py")
     contents = b"# unreviewed payload\n"
     item.size = len(contents)
     rewrite_source(directory, lambda files: [*files, (item, contents)])
@@ -120,6 +120,19 @@ def test_an_allowlisted_module_still_needs_reviewed_canonical_source(release, tm
 def test_omitting_a_real_engine_dependency_is_refused(release, tmp_path):
     directory = copy_release(release, tmp_path)
     rewrite_source(directory, lambda files: [(item, data) for item, data in files if not item.name.endswith("src/gradia_lens/experiments.py")])
+    with pytest.raises(ValueError, match="Missing portable release files"):
+        verify(directory, PACKAGE)
+
+
+@pytest.mark.parametrize("promised", [
+    "examples/records/positive-tone.json",
+    "examples/records/positive-tone-campaign.json",
+    "docs/PAPER_TRACK.md",
+    "docs/assets/computation.jpg",
+])
+def test_promised_research_and_offline_examples_cannot_be_omitted(release, tmp_path, promised):
+    directory = copy_release(release, tmp_path)
+    rewrite_source(directory, lambda files: [(item, data) for item, data in files if not item.name.endswith("/" + promised)])
     with pytest.raises(ValueError, match="Missing portable release files"):
         verify(directory, PACKAGE)
 

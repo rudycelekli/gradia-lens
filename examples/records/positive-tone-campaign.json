@@ -1,0 +1,2448 @@
+{
+  "schema": "gradia.lens.campaign.v1",
+  "edition": "0.1.0a2",
+  "recording_status": "real_local_model_measurements_on_hand_written_public_probes",
+  "probe_design": "Synthetic prompts and manually specified candidate expectations; measured model outcomes are not synthetic.",
+  "timing_limit": "Whole discovery-batch timings include actual direction-fitting and cache state; no controlled speed comparison.",
+  "projection_scope": "Exact search result with repository identity metadata omitted. No outer receipt paths, timestamps, logs or organization data.",
+  "searches": [
+    {
+      "experiment_id": "positive-tone",
+      "config": {
+        "experiment_id": "positive-tone",
+        "seed": 17,
+        "budget": 6,
+        "layers": [
+          8,
+          10
+        ],
+        "strengths": [
+          0.0,
+          0.15,
+          0.35
+        ],
+        "strategy": "adaptive"
+      },
+      "fingerprint": "c8338e9d601927fa4335311d5537e1d304e09eedbae06bed218ec498e431cacc",
+      "points": [
+        {
+          "layer": 8,
+          "strength": 0.0,
+          "target_gain": 0.0,
+          "regression_damage": 0.0,
+          "score": 0.0,
+          "reason": "Measure the zero or smallest intervention control",
+          "summary": {
+            "target_gain": 0.0,
+            "regression_damage": 0.0,
+            "near_damage": 0.0,
+            "unrelated_damage": 0.0,
+            "target_improved": 0,
+            "target_count": 3,
+            "regression_degraded": 0,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 3,
+              "regression_degraded": 0,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "45aa19f872d2ebff1887a7e5a4381d07d4b8153365aaad9df1de1672c1e730e6",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.8:post_block:last_sequence_position",
+            "layer": 8,
+            "strength": 0.0,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 0.0,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.183221541,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        },
+        {
+          "layer": 10,
+          "strength": 0.35,
+          "target_gain": 7.9493059713675125,
+          "regression_damage": 2.7795465914890416,
+          "score": 2.3902127883894293,
+          "reason": "Test a promising uncertain setting",
+          "summary": {
+            "target_gain": 7.9493059713675125,
+            "regression_damage": 2.7795465914890416,
+            "near_damage": 5.1963571943839355,
+            "unrelated_damage": 0.36273598859414813,
+            "target_improved": 3,
+            "target_count": 3,
+            "regression_degraded": 3,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 7.9493059713675125,
+              "regression_damage": 2.7795465914890416,
+              "near_damage": 5.1963571943839355,
+              "unrelated_damage": 0.36273598859414813,
+              "target_improved": 3,
+              "target_count": 3,
+              "regression_degraded": 3,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.175790195016183,
+                "undesired_logprob": -13.551127828989085,
+                "margin": 10.3753376339729
+              },
+              "margin_gain": 8.465100077174853,
+              "expected_logprob_delta": 0.6964104160448659,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.230982903331418,
+                "undesired_logprob": -13.47519296837661,
+                "margin": 11.244210065045193
+              },
+              "margin_gain": 8.307150626665702,
+              "expected_logprob_delta": 0.7029784269162969,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -5.181308524720584,
+                "undesired_logprob": -14.902957792157512,
+                "margin": 9.721649267436927
+              },
+              "margin_gain": 7.075667210261981,
+              "expected_logprob_delta": 0.8577918204423307,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -6.653367851950274,
+                "undesired_logprob": -2.2750492389178127,
+                "margin": -4.378318613032461
+              },
+              "margin_gain": -6.417235693129635,
+              "expected_logprob_delta": -4.349851373324169,
+              "regression_damage": 4.349851373324169,
+              "degraded": true
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -11.389511705319348,
+                "undesired_logprob": -4.419136061057798,
+                "margin": -6.9703756442615505
+              },
+              "margin_gain": -7.819518506694935,
+              "expected_logprob_delta": -6.042863015443702,
+              "regression_damage": 6.042863015443702,
+              "degraded": true
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.963986873626709,
+                "undesired_logprob": -6.047888063935161,
+                "margin": 2.0839011903084517
+              },
+              "margin_gain": 0.19599700540515475,
+              "expected_logprob_delta": -0.5295703411102295,
+              "regression_damage": 0.5295703411102295,
+              "degraded": true
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.9651494644011676,
+                "undesired_logprob": -4.046173031506931,
+                "margin": 1.0810235671057633
+              },
+              "margin_gain": 0.06981929851874913,
+              "expected_logprob_delta": -0.19590163607806677,
+              "regression_damage": 0.19590163607806677,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "b1f72e26c89d7b2020955b1d3a497808956e66a09b80114be71bd018956fc0cc",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.10:post_block:last_sequence_position",
+            "layer": 10,
+            "strength": 0.35,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 86.43469924926757,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.04726583299999998,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        },
+        {
+          "layer": 10,
+          "strength": 0.0,
+          "target_gain": 0.0,
+          "regression_damage": 0.0,
+          "score": 0.0,
+          "reason": "Resolve a nearby observed tradeoff",
+          "summary": {
+            "target_gain": 0.0,
+            "regression_damage": 0.0,
+            "near_damage": 0.0,
+            "unrelated_damage": 0.0,
+            "target_improved": 0,
+            "target_count": 3,
+            "regression_degraded": 0,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 3,
+              "regression_degraded": 0,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "margin_gain": 0.0,
+              "expected_logprob_delta": 0.0,
+              "regression_damage": 0.0,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "b1f72e26c89d7b2020955b1d3a497808956e66a09b80114be71bd018956fc0cc",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.10:post_block:last_sequence_position",
+            "layer": 10,
+            "strength": 0.0,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 0.0,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.04871641600000043,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        },
+        {
+          "layer": 8,
+          "strength": 0.35,
+          "target_gain": 4.49109253956398,
+          "regression_damage": 1.596556085705243,
+          "score": 1.2979803681534943,
+          "reason": "Cover an unmeasured region",
+          "summary": {
+            "target_gain": 4.49109253956398,
+            "regression_damage": 1.596556085705243,
+            "near_damage": 3.193112171410486,
+            "unrelated_damage": 0.0,
+            "target_improved": 3,
+            "target_count": 3,
+            "regression_degraded": 2,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 4.49109253956398,
+              "regression_damage": 1.596556085705243,
+              "near_damage": 3.193112171410486,
+              "unrelated_damage": 0.0,
+              "target_improved": 3,
+              "target_count": 3,
+              "regression_degraded": 2,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.325017787476999,
+                "undesired_logprob": -9.998477245902018,
+                "margin": 6.673459458425019
+              },
+              "margin_gain": 4.76322190162697,
+              "expected_logprob_delta": 0.5471828235840497,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.8546572601902547,
+                "undesired_logprob": -10.203496143467417,
+                "margin": 7.348838883277162
+              },
+              "margin_gain": 4.411779444897672,
+              "expected_logprob_delta": 0.07930407005746032,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -5.8731403681751395,
+                "undesired_logprob": -12.817398697517383,
+                "margin": 6.944258329342244
+              },
+              "margin_gain": 4.298276272167298,
+              "expected_logprob_delta": 0.1659599769877751,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -4.851049511201493,
+                "undesired_logprob": -1.7204371196420292,
+                "margin": -3.130612391559464
+              },
+              "margin_gain": -5.169529471656638,
+              "expected_logprob_delta": -2.5475330325753878,
+              "regression_damage": 2.5475330325753878,
+              "degraded": true
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -9.185340000121231,
+                "undesired_logprob": -4.551115005488854,
+                "margin": -4.634224994632377
+              },
+              "margin_gain": -5.483367857065762,
+              "expected_logprob_delta": -3.8386913102455846,
+              "regression_damage": 3.8386913102455846,
+              "degraded": true
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.3428869247436523,
+                "undesired_logprob": -5.917031965693098,
+                "margin": 2.5741450409494453
+              },
+              "margin_gain": 0.6862408560461484,
+              "expected_logprob_delta": 0.09152960777282715,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.74821665482926,
+                "undesired_logprob": -3.989138463652481,
+                "margin": 1.240921808823221
+              },
+              "margin_gain": 0.22971754023620683,
+              "expected_logprob_delta": 0.02103117349384087,
+              "regression_damage": 0.0,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "45aa19f872d2ebff1887a7e5a4381d07d4b8153365aaad9df1de1672c1e730e6",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.8:post_block:last_sequence_position",
+            "layer": 8,
+            "strength": 0.35,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 44.35258255004882,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.048835916999999895,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        },
+        {
+          "layer": 10,
+          "strength": 0.15,
+          "target_gain": 3.6178617702421874,
+          "regression_damage": 0.8498787030585108,
+          "score": 1.9181043641251658,
+          "reason": "Resolve a nearby observed tradeoff",
+          "summary": {
+            "target_gain": 3.6178617702421874,
+            "regression_damage": 0.8498787030585108,
+            "near_damage": 1.6997574061170215,
+            "unrelated_damage": 0.0,
+            "target_improved": 3,
+            "target_count": 3,
+            "regression_degraded": 2,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 3.6178617702421874,
+              "regression_damage": 0.8498787030585108,
+              "near_damage": 1.6997574061170215,
+              "unrelated_damage": 0.0,
+              "target_improved": 3,
+              "target_count": 3,
+              "regression_degraded": 2,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.3187551854376656,
+                "undesired_logprob": -9.082236159613466,
+                "margin": 5.7634809741758
+              },
+              "margin_gain": 3.8532434173777514,
+              "expected_logprob_delta": 0.5534454256233832,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.4294199647002905,
+                "undesired_logprob": -9.164112970215568,
+                "margin": 6.734693005515277
+              },
+              "margin_gain": 3.797633567135786,
+              "expected_logprob_delta": 0.5045413655474245,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -5.46739496806424,
+                "undesired_logprob": -11.31608535145221,
+                "margin": 5.848690383387971
+              },
+              "margin_gain": 3.202708326213025,
+              "expected_logprob_delta": 0.5717053770986746,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -3.6288183322643226,
+                "undesired_logprob": -3.113893786960834,
+                "margin": -0.5149245453034887
+              },
+              "margin_gain": -2.553841625400663,
+              "expected_logprob_delta": -1.325301853638217,
+              "regression_damage": 1.325301853638217,
+              "degraded": true
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -7.4208616484714724,
+                "undesired_logprob": -5.075062780367354,
+                "margin": -2.3457988681041186
+              },
+              "margin_gain": -3.1949417305375034,
+              "expected_logprob_delta": -2.074212958595826,
+              "regression_damage": 2.074212958595826,
+              "degraded": true
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.4239602088928223,
+                "undesired_logprob": -5.5165745169058775,
+                "margin": 2.0926143080130553
+              },
+              "margin_gain": 0.20471012310975834,
+              "expected_logprob_delta": 0.010456323623657227,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.7596215962502773,
+                "undesired_logprob": -3.835957300922377,
+                "margin": 1.0763357046720996
+              },
+              "margin_gain": 0.06513143608508543,
+              "expected_logprob_delta": 0.009626232072823537,
+              "regression_damage": 0.0,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "b1f72e26c89d7b2020955b1d3a497808956e66a09b80114be71bd018956fc0cc",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.10:post_block:last_sequence_position",
+            "layer": 10,
+            "strength": 0.15,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 37.04344253540039,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.047313958000000156,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        },
+        {
+          "layer": 8,
+          "strength": 0.15,
+          "target_gain": 2.5646752980012195,
+          "regression_damage": 0.41095293055528515,
+          "score": 1.7427694368906492,
+          "reason": "Resolve a nearby observed tradeoff",
+          "summary": {
+            "target_gain": 2.5646752980012195,
+            "regression_damage": 0.41095293055528515,
+            "near_damage": 0.8219058611105703,
+            "unrelated_damage": 0.0,
+            "target_improved": 3,
+            "target_count": 3,
+            "regression_degraded": 2,
+            "regression_count": 4,
+            "discovery": {
+              "target_gain": 2.5646752980012195,
+              "regression_damage": 0.41095293055528515,
+              "near_damage": 0.8219058611105703,
+              "unrelated_damage": 0.0,
+              "target_improved": 3,
+              "target_count": 3,
+              "regression_degraded": 2,
+              "regression_count": 4
+            },
+            "confirmation": {
+              "target_gain": 0.0,
+              "regression_damage": 0.0,
+              "near_damage": 0.0,
+              "unrelated_damage": 0.0,
+              "target_improved": 0,
+              "target_count": 0,
+              "regression_degraded": 0,
+              "regression_count": 0
+            }
+          },
+          "rows": [
+            {
+              "id": "tone-target-1",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "My experience at the cafe was",
+              "label": "Unseen cafe review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -3.8722006110610487,
+                "undesired_logprob": -5.782438167859097,
+                "margin": 1.9102375567980485
+              },
+              "steered": {
+                "desired_logprob": -3.3188892460557744,
+                "undesired_logprob": -7.962215203205329,
+                "margin": 4.643325957149554
+              },
+              "margin_gain": 2.7330884003515057,
+              "expected_logprob_delta": 0.5533113650052743,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-2",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "After using the new app, I thought it was",
+              "label": "Unseen app review",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -2.933961330247715,
+                "undesired_logprob": -5.871020768627206,
+                "margin": 2.937059438379491
+              },
+              "steered": {
+                "desired_logprob": -2.6266392107294796,
+                "undesired_logprob": -8.020278697545596,
+                "margin": 5.393639486816117
+              },
+              "margin_gain": 2.4565800484366256,
+              "expected_logprob_delta": 0.3073221195182354,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-target-3",
+              "split": "target",
+              "partition": "discovery",
+              "prompt": "The audience described the performance as",
+              "label": "Unseen performance",
+              "desired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "undesired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "baseline": {
+                "desired_logprob": -6.039100345162915,
+                "undesired_logprob": -8.68508240233786,
+                "margin": 2.6459820571749457
+              },
+              "steered": {
+                "desired_logprob": -5.702046353646525,
+                "undesired_logprob": -10.852385856036998,
+                "margin": 5.150339502390473
+              },
+              "margin_gain": 2.5043574452155273,
+              "expected_logprob_delta": 0.33705399151638993,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-near-1",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The food was rotten and made us sick. It tasted",
+              "label": "Explicitly negative food",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -2.3035164786261055,
+                "undesired_logprob": -4.34243355872328,
+                "margin": 2.0389170800971743
+              },
+              "steered": {
+                "desired_logprob": -2.797392778798855,
+                "undesired_logprob": -2.8231718382637143,
+                "margin": 0.025779059464859255
+              },
+              "margin_gain": -2.013138020632315,
+              "expected_logprob_delta": -0.4938763001727495,
+              "regression_damage": 0.4938763001727495,
+              "degraded": true
+            },
+            {
+              "id": "tone-near-2",
+              "split": "near",
+              "partition": "discovery",
+              "prompt": "The service was rude and the room was filthy. The hotel was",
+              "label": "Explicitly negative hotel",
+              "desired_tokens": [
+                " bad",
+                " awful",
+                " terrible",
+                " horrible"
+              ],
+              "undesired_tokens": [
+                " good",
+                " great",
+                " excellent",
+                " wonderful"
+              ],
+              "baseline": {
+                "desired_logprob": -5.3466486898756465,
+                "undesired_logprob": -6.195791552309031,
+                "margin": 0.8491428624333848
+              },
+              "steered": {
+                "desired_logprob": -6.4965841119240375,
+                "undesired_logprob": -5.0566466758259665,
+                "margin": -1.439937436098071
+              },
+              "margin_gain": -2.289080298531456,
+              "expected_logprob_delta": -1.149935422048391,
+              "regression_damage": 1.149935422048391,
+              "degraded": true
+            },
+            {
+              "id": "tone-unrelated-1",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "The capital of France is",
+              "label": "France capital",
+              "desired_tokens": [
+                " Paris"
+              ],
+              "undesired_tokens": [
+                " London",
+                " Rome"
+              ],
+              "baseline": {
+                "desired_logprob": -3.4344165325164795,
+                "undesired_logprob": -5.322320717419776,
+                "margin": 1.887904184903297
+              },
+              "steered": {
+                "desired_logprob": -3.1639246940612793,
+                "undesired_logprob": -5.467840622616844,
+                "margin": 2.303915928555565
+              },
+              "margin_gain": 0.4160117436522679,
+              "expected_logprob_delta": 0.2704918384552002,
+              "regression_damage": 0.0,
+              "degraded": false
+            },
+            {
+              "id": "tone-unrelated-2",
+              "split": "unrelated",
+              "partition": "discovery",
+              "prompt": "Two plus two equals",
+              "label": "Basic arithmetic",
+              "desired_tokens": [
+                " four",
+                " 4"
+              ],
+              "undesired_tokens": [
+                " five",
+                " 5"
+              ],
+              "baseline": {
+                "desired_logprob": -2.769247828323101,
+                "undesired_logprob": -3.780452096910115,
+                "margin": 1.0112042685870142
+              },
+              "steered": {
+                "desired_logprob": -2.673228725847408,
+                "undesired_logprob": -3.821731181543457,
+                "margin": 1.148502455696049
+              },
+              "margin_gain": 0.13729818710903485,
+              "expected_logprob_delta": 0.0960191024756929,
+              "regression_damage": 0.0,
+              "degraded": false
+            }
+          ],
+          "provenance": {
+            "model": {
+              "id": "openai-community/gpt2",
+              "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+              "parameters": 124439808,
+              "layers": 12,
+              "hidden_size": 768,
+              "device": "cpu",
+              "dtype": "torch.float32",
+              "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+              "seed": 17,
+              "torch": "2.8.0",
+              "transformers": "4.57.3",
+              "numpy": "1.26.4",
+              "python": "3.9.6",
+              "cpu_threads": 4
+            },
+            "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+            "direction_sha256": "45aa19f872d2ebff1887a7e5a4381d07d4b8153365aaad9df1de1672c1e730e6",
+            "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+            "package": {
+              "name": "gradia-lens",
+              "version": "0.1.0a2"
+            },
+            "method": "contrast_mean_residual_addition",
+            "hook": "transformer.h.8:post_block:last_sequence_position",
+            "layer": 8,
+            "strength": 0.15,
+            "seed": 17,
+            "normalization": "unit contrast scaled to mean training residual L2 norm",
+            "application": "last sequence position on every forward pass, including each generated token",
+            "training_pairs": 8,
+            "intervention_l2": 19.00824966430664,
+            "decoding": {
+              "do_sample": false,
+              "algorithm": "greedy",
+              "use_cache": false
+            },
+            "metric": "logsumexp of candidate continuation log probabilities; nats",
+            "thresholds": {
+              "target_improved_margin_gain_nats": 0.05,
+              "regression_degraded_logprob_drop_nats": 0.25
+            },
+            "model_parameters_frozen": true,
+            "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+          },
+          "evaluation_elapsed_seconds": 0.04581229199999992,
+          "evaluation_timing_scope": "discovery_evaluation_batch"
+        }
+      ],
+      "pareto_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "selected": {
+        "layer": 10,
+        "strength": 0.35
+      },
+      "confirmation_used_for_selection": false,
+      "selected_evaluation": {
+        "experiment_id": "positive-tone",
+        "layer": 10,
+        "strength": 0.35,
+        "confirmation_included": true,
+        "rows": [
+          {
+            "id": "tone-target-1",
+            "split": "target",
+            "partition": "discovery",
+            "prompt": "My experience at the cafe was",
+            "label": "Unseen cafe review",
+            "desired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "undesired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "baseline": {
+              "desired_logprob": -3.8722064346981466,
+              "undesired_logprob": -5.78243520981319,
+              "margin": 1.9102287751150437
+            },
+            "steered": {
+              "desired_logprob": -3.175793032039317,
+              "undesired_logprob": -13.55111961208535,
+              "margin": 10.375326580046032
+            },
+            "margin_gain": 8.465097804930988,
+            "expected_logprob_delta": 0.6964134026588296,
+            "regression_damage": 0.0,
+            "degraded": false
+          },
+          {
+            "id": "tone-target-2",
+            "split": "target",
+            "partition": "discovery",
+            "prompt": "After using the new app, I thought it was",
+            "label": "Unseen app review",
+            "desired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "undesired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "baseline": {
+              "desired_logprob": -2.933964688944136,
+              "undesired_logprob": -5.87101862383142,
+              "margin": 2.9370539348872837
+            },
+            "steered": {
+              "desired_logprob": -2.230976585593473,
+              "undesired_logprob": -13.475182033955631,
+              "margin": 11.244205448362159
+            },
+            "margin_gain": 8.307151513474874,
+            "expected_logprob_delta": 0.7029881033506631,
+            "regression_damage": 0.0,
+            "degraded": false
+          },
+          {
+            "id": "tone-target-3",
+            "split": "target",
+            "partition": "discovery",
+            "prompt": "The audience described the performance as",
+            "label": "Unseen performance",
+            "desired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "undesired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "baseline": {
+              "desired_logprob": -6.039094268445355,
+              "undesired_logprob": -8.685070687960092,
+              "margin": 2.645976419514737
+            },
+            "steered": {
+              "desired_logprob": -5.181306453951034,
+              "undesired_logprob": -14.902957803221367,
+              "margin": 9.721651349270333
+            },
+            "margin_gain": 7.075674929755596,
+            "expected_logprob_delta": 0.857787814494321,
+            "regression_damage": 0.0,
+            "degraded": false
+          },
+          {
+            "id": "tone-target-4",
+            "split": "target",
+            "partition": "confirmation",
+            "prompt": "The museum tour left me thinking it was",
+            "label": "Sealed museum paraphrase",
+            "desired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "undesired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "baseline": {
+              "desired_logprob": -4.652283450996072,
+              "undesired_logprob": -6.457492138738969,
+              "margin": 1.8052086877428968
+            },
+            "steered": {
+              "desired_logprob": -3.8634849837753378,
+              "undesired_logprob": -13.6650690326617,
+              "margin": 9.801584048886362
+            },
+            "margin_gain": 7.996375361143465,
+            "expected_logprob_delta": 0.7887984672207344,
+            "regression_damage": 0.0,
+            "degraded": false
+          },
+          {
+            "id": "tone-target-5",
+            "split": "target",
+            "partition": "confirmation",
+            "prompt": "I tried the workshop and found it",
+            "label": "Sealed workshop paraphrase",
+            "desired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "undesired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "baseline": {
+              "desired_logprob": -5.1690776760318595,
+              "undesired_logprob": -7.487981236219645,
+              "margin": 2.3189035601877857
+            },
+            "steered": {
+              "desired_logprob": -4.34095718509595,
+              "undesired_logprob": -13.672369013689877,
+              "margin": 9.331411828593929
+            },
+            "margin_gain": 7.012508268406143,
+            "expected_logprob_delta": 0.8281204909359099,
+            "regression_damage": 0.0,
+            "degraded": false
+          },
+          {
+            "id": "tone-near-1",
+            "split": "near",
+            "partition": "discovery",
+            "prompt": "The food was rotten and made us sick. It tasted",
+            "label": "Explicitly negative food",
+            "desired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "undesired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "baseline": {
+              "desired_logprob": -2.303502329228584,
+              "undesired_logprob": -4.342437591928483,
+              "margin": 2.0389352626998996
+            },
+            "steered": {
+              "desired_logprob": -6.653352461045371,
+              "undesired_logprob": -2.275041061872459,
+              "margin": -4.378311399172912
+            },
+            "margin_gain": -6.417246661872811,
+            "expected_logprob_delta": -4.349850131816787,
+            "regression_damage": 4.349850131816787,
+            "degraded": true
+          },
+          {
+            "id": "tone-near-2",
+            "split": "near",
+            "partition": "discovery",
+            "prompt": "The service was rude and the room was filthy. The hotel was",
+            "label": "Explicitly negative hotel",
+            "desired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "undesired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "baseline": {
+              "desired_logprob": -5.346654793195075,
+              "undesired_logprob": -6.195788383793847,
+              "margin": 0.8491335905987718
+            },
+            "steered": {
+              "desired_logprob": -11.389513460505476,
+              "undesired_logprob": -4.419135625387533,
+              "margin": -6.970377835117944
+            },
+            "margin_gain": -7.8195114257167155,
+            "expected_logprob_delta": -6.042858667310401,
+            "regression_damage": 6.042858667310401,
+            "degraded": true
+          },
+          {
+            "id": "tone-near-3",
+            "split": "near",
+            "partition": "confirmation",
+            "prompt": "The instructions were misleading and the device broke. It was",
+            "label": "Explicitly negative device",
+            "desired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "undesired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "baseline": {
+              "desired_logprob": -6.201326946623744,
+              "undesired_logprob": -6.667925574270892,
+              "margin": 0.4665986276471479
+            },
+            "steered": {
+              "desired_logprob": -12.283972194068669,
+              "undesired_logprob": -4.971553843231534,
+              "margin": -7.312418350837135
+            },
+            "margin_gain": -7.779016978484283,
+            "expected_logprob_delta": -6.082645247444925,
+            "regression_damage": 6.082645247444925,
+            "degraded": true
+          },
+          {
+            "id": "tone-near-4",
+            "split": "near",
+            "partition": "confirmation",
+            "prompt": "The plot was incoherent and the acting was wooden. The film was",
+            "label": "Sealed negative film",
+            "desired_tokens": [
+              " bad",
+              " awful",
+              " terrible",
+              " horrible"
+            ],
+            "undesired_tokens": [
+              " good",
+              " great",
+              " excellent",
+              " wonderful"
+            ],
+            "baseline": {
+              "desired_logprob": -4.551362545271728,
+              "undesired_logprob": -4.478932450469457,
+              "margin": -0.07243009480227158
+            },
+            "steered": {
+              "desired_logprob": -10.746040440329015,
+              "undesired_logprob": -3.500039705325806,
+              "margin": -7.246000735003209
+            },
+            "margin_gain": -7.173570640200937,
+            "expected_logprob_delta": -6.1946778950572865,
+            "regression_damage": 6.1946778950572865,
+            "degraded": true
+          },
+          {
+            "id": "tone-unrelated-1",
+            "split": "unrelated",
+            "partition": "discovery",
+            "prompt": "The capital of France is",
+            "label": "France capital",
+            "desired_tokens": [
+              " Paris"
+            ],
+            "undesired_tokens": [
+              " London",
+              " Rome"
+            ],
+            "baseline": {
+              "desired_logprob": -3.434429407119751,
+              "undesired_logprob": -5.322321167005148,
+              "margin": 1.887891759885397
+            },
+            "steered": {
+              "desired_logprob": -3.964015007019043,
+              "undesired_logprob": -6.047880499770202,
+              "margin": 2.0838654927511593
+            },
+            "margin_gain": 0.19597373286576225,
+            "expected_logprob_delta": -0.529585599899292,
+            "regression_damage": 0.529585599899292,
+            "degraded": true
+          },
+          {
+            "id": "tone-unrelated-2",
+            "split": "unrelated",
+            "partition": "discovery",
+            "prompt": "Two plus two equals",
+            "label": "Basic arithmetic",
+            "desired_tokens": [
+              " four",
+              " 4"
+            ],
+            "undesired_tokens": [
+              " five",
+              " 5"
+            ],
+            "baseline": {
+              "desired_logprob": -2.769248511327208,
+              "undesired_logprob": -3.780441010784787,
+              "margin": 1.0111924994575792
+            },
+            "steered": {
+              "desired_logprob": -2.9651320168564226,
+              "undesired_logprob": -4.046182565249265,
+              "margin": 1.0810505483928425
+            },
+            "margin_gain": 0.06985804893526337,
+            "expected_logprob_delta": -0.19588350552921474,
+            "regression_damage": 0.19588350552921474,
+            "degraded": false
+          },
+          {
+            "id": "tone-unrelated-3",
+            "split": "unrelated",
+            "partition": "confirmation",
+            "prompt": "The opposite of hot is",
+            "label": "Sealed antonym",
+            "desired_tokens": [
+              " cold"
+            ],
+            "undesired_tokens": [
+              " warm"
+            ],
+            "baseline": {
+              "desired_logprob": -1.8156447410583496,
+              "undesired_logprob": -4.890824794769287,
+              "margin": 3.0751800537109375
+            },
+            "steered": {
+              "desired_logprob": -4.04279088973999,
+              "undesired_logprob": -3.1038718223571777,
+              "margin": -0.9389190673828125
+            },
+            "margin_gain": -4.01409912109375,
+            "expected_logprob_delta": -2.2271461486816406,
+            "regression_damage": 2.2271461486816406,
+            "degraded": true
+          },
+          {
+            "id": "tone-unrelated-4",
+            "split": "unrelated",
+            "partition": "confirmation",
+            "prompt": "The largest planet in our solar system is",
+            "label": "Sealed planet fact",
+            "desired_tokens": [
+              " Jupiter"
+            ],
+            "undesired_tokens": [
+              " Earth",
+              " Mars"
+            ],
+            "baseline": {
+              "desired_logprob": -3.6112146377563477,
+              "undesired_logprob": -3.0668911585591876,
+              "margin": -0.5443234791971601
+            },
+            "steered": {
+              "desired_logprob": -5.101819038391113,
+              "undesired_logprob": -3.5399600382285197,
+              "margin": -1.5618590001625936
+            },
+            "margin_gain": -1.0175355209654335,
+            "expected_logprob_delta": -1.4906044006347656,
+            "regression_damage": 1.4906044006347656,
+            "degraded": true
+          }
+        ],
+        "summary": {
+          "target_gain": 7.949308082720486,
+          "regression_damage": 2.779544476138924,
+          "near_damage": 5.196354399563594,
+          "unrelated_damage": 0.36273455271425337,
+          "target_improved": 3,
+          "target_count": 3,
+          "regression_degraded": 3,
+          "regression_count": 4,
+          "discovery": {
+            "target_gain": 7.949308082720486,
+            "regression_damage": 2.779544476138924,
+            "near_damage": 5.196354399563594,
+            "unrelated_damage": 0.36273455271425337,
+            "target_improved": 3,
+            "target_count": 3,
+            "regression_degraded": 3,
+            "regression_count": 4
+          },
+          "confirmation": {
+            "target_gain": 7.504441814774804,
+            "regression_damage": 3.9987684229546545,
+            "near_damage": 6.138661571251106,
+            "unrelated_damage": 1.8588752746582031,
+            "target_improved": 2,
+            "target_count": 2,
+            "regression_degraded": 4,
+            "regression_count": 4
+          }
+        },
+        "provenance": {
+          "model": {
+            "id": "openai-community/gpt2",
+            "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+            "parameters": 124439808,
+            "layers": 12,
+            "hidden_size": 768,
+            "device": "cpu",
+            "dtype": "torch.float32",
+            "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+            "seed": 17,
+            "torch": "2.8.0",
+            "transformers": "4.57.3",
+            "numpy": "1.26.4",
+            "python": "3.9.6",
+            "cpu_threads": 4
+          },
+          "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+          "direction_sha256": "b1f72e26c89d7b2020955b1d3a497808956e66a09b80114be71bd018956fc0cc",
+          "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+          "package": {
+            "name": "gradia-lens",
+            "version": "0.1.0a2"
+          },
+          "method": "contrast_mean_residual_addition",
+          "hook": "transformer.h.10:post_block:last_sequence_position",
+          "layer": 10,
+          "strength": 0.35,
+          "seed": 17,
+          "normalization": "unit contrast scaled to mean training residual L2 norm",
+          "application": "last sequence position on every forward pass, including each generated token",
+          "training_pairs": 8,
+          "intervention_l2": 86.43469924926757,
+          "decoding": {
+            "do_sample": false,
+            "algorithm": "greedy",
+            "use_cache": false
+          },
+          "metric": "logsumexp of candidate continuation log probabilities; nats",
+          "thresholds": {
+            "target_improved_margin_gain_nats": 0.05,
+            "regression_degraded_logprob_drop_nats": 0.25
+          },
+          "model_parameters_frozen": true,
+          "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+        },
+        "elapsed_seconds": 0.12472904200000023
+      },
+      "acquisition_source_sha256": "cb406a5a86461ddefaad6e976b883156e7fd0b76b68d285676bb7c596a0acf11",
+      "provenance": {
+        "model": {
+          "id": "openai-community/gpt2",
+          "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+          "parameters": 124439808,
+          "layers": 12,
+          "hidden_size": 768,
+          "device": "cpu",
+          "dtype": "torch.float32",
+          "weights_sha256": "2eaf003b11dbb54c7fe511397a4c77d8fc734983b8dbf66794eed8e546073527",
+          "seed": 17,
+          "torch": "2.8.0",
+          "transformers": "4.57.3",
+          "numpy": "1.26.4",
+          "python": "3.9.6",
+          "cpu_threads": 4
+        },
+        "dataset_sha256": "c86d0b97af40cd198de02ff026eba4b89b413c8e7e872446b2e32cc3e303edaa",
+        "direction_sha256": "b1f72e26c89d7b2020955b1d3a497808956e66a09b80114be71bd018956fc0cc",
+        "engine_source_sha256": "6d1e2d3eb92a60a8908b8c09297e9c747993a66c9e2377cc13e9ddf4a76c755a",
+        "package": {
+          "name": "gradia-lens",
+          "version": "0.1.0a2"
+        },
+        "method": "contrast_mean_residual_addition",
+        "hook": "transformer.h.10:post_block:last_sequence_position",
+        "layer": 10,
+        "strength": 0.35,
+        "seed": 17,
+        "normalization": "unit contrast scaled to mean training residual L2 norm",
+        "application": "last sequence position on every forward pass, including each generated token",
+        "training_pairs": 8,
+        "intervention_l2": 86.43469924926757,
+        "decoding": {
+          "do_sample": false,
+          "algorithm": "greedy",
+          "use_cache": false
+        },
+        "metric": "logsumexp of candidate continuation log probabilities; nats",
+        "thresholds": {
+          "target_improved_margin_gain_nats": 0.05,
+          "regression_degraded_logprob_drop_nats": 0.25
+        },
+        "model_parameters_frozen": true,
+        "dataset_origin": "Versioned hand-written lexical probes; not an external benchmark."
+      },
+      "elapsed_seconds": 0.5470288329999997,
+      "timing_scope": "discovery evaluations, acquisition, and selected confirmation; excludes model construction and receipt hashing"
+    }
+  ],
+  "projection_sha256": "f0191a182269de7d958f8664f1d8370ae282081055fa5d634dc1ac066685fa9d"
+}

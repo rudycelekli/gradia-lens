@@ -7,6 +7,7 @@ import json
 import math
 import os
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -168,6 +169,7 @@ def _dispatch(engine: Any, operation: str, params: dict[str, Any]) -> dict[str, 
     if operation == "search":
         from .search import BoundarySearch, experiment_fingerprint, pareto_indices
 
+        started = time.perf_counter()
         policy = BoundarySearch(params["layers"], params["strengths"], params["strategy"], params["seed"])
         identifier = params["experiment_id"]
         points = policy.run(
@@ -189,6 +191,8 @@ def _dispatch(engine: Any, operation: str, params: dict[str, Any]) -> dict[str, 
             "selected_evaluation": confirmation,
             "acquisition_source_sha256": source_hashes()["search.py"],
             "provenance": confirmation["provenance"],
+            "elapsed_seconds": time.perf_counter() - started,
+            "timing_scope": "discovery evaluations, acquisition, and selected confirmation; excludes model construction and receipt hashing",
         }
     if operation == "challenge":
         from .challenges import propose_probes, rank_findings
@@ -220,7 +224,11 @@ def execute(
 ) -> dict[str, Any]:
     """Run one real, bounded operation and return a portable receipt. Never synthetic."""
     normalized = normalize_params(operation, params)
+    load_started = time.perf_counter()
+    constructed = engine is None
     engine = engine if engine is not None else _model_engine(cache_dir)
+    load_elapsed = time.perf_counter() - load_started if constructed else None
+    operation_started = time.perf_counter()
     # Hash snapshots share the engine's serialization boundary, so another
     # thread's temporary parameter preview cannot contaminate this receipt.
     with engine._lock:
@@ -243,6 +251,12 @@ def execute(
         "result": result,
         "integrity": {"weights_before_sha256": before, "weights_after_sha256": after, "hooks_after": 0},
         "limitations": LIMITATIONS,
+        "timing": {
+            "model_load_elapsed_seconds": load_elapsed,
+            "model_load_scope": "optional library imports and checkpoint construction; unrecorded for a supplied Engine",
+            "receipt_operation_elapsed_seconds": time.perf_counter() - operation_started,
+            "receipt_operation_scope": "serialized operation including full before/after parameter hashing; excludes model construction, JSON serialization, and file writing",
+        },
     }
     receipt["sha256"] = receipt_digest(receipt)
     return receipt
@@ -253,7 +267,7 @@ def _measurements(value: Any) -> Any:
         return {
             key: _measurements(item)
             for key, item in value.items()
-            if key not in {"elapsed_seconds", "runtime_seconds", "provenance"}
+            if key not in {"elapsed_seconds", "runtime_seconds", "evaluation_elapsed_seconds", "provenance"}
         }
     if isinstance(value, list):
         return [_measurements(item) for item in value]
